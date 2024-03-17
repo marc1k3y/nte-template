@@ -1,7 +1,9 @@
 {
-  "name": "nodejs",
+  "name": "nodejs-template",
   "version": "1.0.0",
-  "description": "",
+  "description": "basic nodejs typescript template with jwt auth, error and cors middleware",
+  "author": "marc1k3y <marc1k3y@gmail.com>",
+  "license": "ISC",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.ts",
@@ -9,8 +11,6 @@
     "build": "tsc",
     "serve": "node dist/index.js"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
     "@types/cors": "^2.8.14",

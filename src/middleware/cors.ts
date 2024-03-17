@@ -1,6 +1,6 @@
 import { CorsOptions } from "cors";
 
-const whitelist = ["http://localhost:5173", "http://192.168.153.139:5173", "http://162.33.179.56"];
+const whitelist = ["http://localhost:5173"];
 export const corsOptions: CorsOptions = {
   origin: (origin, callback) => {
     if (!origin || whitelist.includes(origin as string)) {
