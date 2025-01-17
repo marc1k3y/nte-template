@@ -1,4 +1,7 @@
 import { MongoClient } from "mongodb";
+import { MONGODB_NAME, MONGODB_URL } from "../const";
 
-export const client = new MongoClient(process.env.MONGODB_URL || "");
-export const db = client.db(process.env.MONGODB_NAME);
+const localUrl = MONGODB_URL || "";
+
+export const client = new MongoClient(localUrl);
+export const db = client.db(MONGODB_NAME);

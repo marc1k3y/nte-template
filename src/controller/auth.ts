@@ -23,7 +23,7 @@ export class AuthController {
       if (!insertedUser) throw new Error("500:when inserting user");
       const token = generateJwt({ _id: insertedUser.insertedId.toJSON(), email });
       if (!token) throw new Error("500:whem generating jwt");
-      return res.status(200).json({ token });
+      res.status(200).json({ token });
     } catch (e) {
       return next(e);
     }
@@ -39,7 +39,7 @@ export class AuthController {
       if (!comparePassword) throw new Error("400:bad password");
       const token = generateJwt({ _id: findedUser._id.toString(), email: findedUser.email });
       if (!token) throw new Error("500:whem generating jwt");
-      return res.status(200).json({ token });
+      res.status(200).json({ token });
     } catch (e) {
       return next(e);
     }
@@ -52,7 +52,7 @@ export class AuthController {
       if (!findedUser) throw new Error("404:user not found");
       const token = generateJwt({ _id, email });
       if (!token) throw new Error("500:generate token fail");
-      return res.status(200).json({ token });
+      res.status(200).json({ token });
     } catch (e) {
       return next(e);
     }

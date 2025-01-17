@@ -1,4 +1,4 @@
-create .env file with
+## create **.env** file with
 - PORT as number
 - MONGODB_URL as string
 - MONGODB_NAME as string
