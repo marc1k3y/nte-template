@@ -1,6 +1,6 @@
 ## NodeJS + TypeScript + express template
 
-### create **.env** file with
+### create **src/variables/.env** file in with
 - PORT as number
 - MONGODB_URL as string
 - MONGODB_NAME as string

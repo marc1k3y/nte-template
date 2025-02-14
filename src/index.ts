@@ -4,7 +4,8 @@ import router from "./router";
 import { corsOptions } from "./middleware/cors";
 import { client } from "./service/mongodb";
 import { errorMiddleware } from "./middleware/error";
-import { PORT } from "./const";
+import { PORT } from "./variables/constants";
+
 
 const app = express();
 const port = PORT || 4001;
@@ -22,4 +23,4 @@ app.get("/", (_: Request, res: Response) => {
 app.listen(port, () => {
   client.connect().then(() => console.log("[+] mongodb"));
   console.log(`[+] express on ${port}`);
-});
+}); 

@@ -1,9 +1,9 @@
 import { verify } from "jsonwebtoken";
-import { NextFunction, Request, Response } from "express";
-import { CustomRequest, TokenPayload } from "../types";
-import { JWT_SECRET } from "../const";
+import { RequestHandler } from "express";
+import { AuthRequest, TokenPayload } from "../variables/types";
+import { JWT_SECRET } from "../variables/constants";
 
-export const authMiddleware = (req: Request, _: Response, next: NextFunction) => {
+export const authMiddleware: RequestHandler = (req, _res, next) => {
   if (req.method === "OPTIONS") {
     return next();
   }
@@ -14,9 +14,8 @@ export const authMiddleware = (req: Request, _: Response, next: NextFunction) =>
     if (!token) throw new Error("401:token_not_found");
 
     const decoded = <TokenPayload>verify(token, JWT_SECRET);
-    if (!decoded._id) throw new Error("500:jwt_is_broken");
 
-    (req as CustomRequest).token = decoded;
+    (req as AuthRequest).token = decoded;
     return next();
   } catch (e) {
     return next(e);

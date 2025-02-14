@@ -1,6 +1,6 @@
-import { NextFunction, Request, Response } from "express";
+import { ErrorRequestHandler } from "express";
 
-export const errorMiddleware = (err: Error, req: Request, res: Response, next: NextFunction) => {
+export const errorMiddleware: ErrorRequestHandler = (err, req, res, next) => {
   console.log(`[-] ${req.originalUrl}`);
   // check if not error set unexpected error message
   const errBody = err.message.split(":");
